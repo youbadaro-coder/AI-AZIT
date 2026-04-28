@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensual Wellness | Anatomy Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">💋</span>
+                <h2>Sensual Edu</h2>
+            </div>
+            <nav class="course-nav">
+                <span class="nav-category">Course 01</span>
+                <ul>
+                    <li class="active" data-target="intro">1. 오리엔테이션</li>
+                    <li data-target="anatomy">2. 기초 해부학 맵</li>
+                </ul>
+                
+                <span class="nav-category">Course 02 (전체 무료개방)</span>
+                <ul>
+                    <li data-target="advanced1">1. 실전 딥 플레이 스킬</li>
+                    <li data-target="advanced2">2. 파트너와의 교감 시크릿</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="user-info">
+                    <span>VIP 프리패스 학습자님</span>
+                    <button class="upgrade-btn">내 정보 프로필</button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Section: Intro -->
+                <section id="intro" class="lesson-section active">
+                    <h1>섹슈얼 웰니스의 마스터 클래스</h1>
+                    <p class="subtitle">모든 한계를 부수고 자유롭게 지식을 탐색하세요.</p>
+                    <div class="video-placeholder" style="background-image: url('partner_video_bg.png'); background-size: cover; background-position: center;">
+                        <div class="dark-overlay"></div>
+                        <span class="play-icon">▶</span>
+                        <div style="z-index: 2; margin-left: 15px; font-size: 1.1rem;">프롤로그 트레일러 재생</div>
+                    </div>
+                </section>
+
+                <!-- Section: Anatomy (Interactive) -->
+                <section id="anatomy" class="lesson-section hidden">
+                    <h1>관능적 인체 해부학 다이어그램</h1>
+                    <p class="subtitle">어둠 속에 숨겨진 해부학적 포인트를 탐색해보세요. (탭을 눌러 시점을 변경하세요)</p>
+                    
+                    <div class="view-selector">
+                        <button class="view-btn active" data-view="front">겉면 (Front)</button>
+                        <button class="view-btn" data-view="side">옆면 (Side)</button>
+                        <button class="view-btn" data-view="internal">속·단면 (Internal)</button>
+                    </div>
+
+                    <div class="interactive-viewer">
+                        <!-- View: Front -->
+                        <div id="view-front" class="anatomy-view-pane active">
+                            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="anatomy-svg">
+                                <defs>
+                                    <radialGradient id="gradFront" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#3b1123" />
+                                        <stop offset="100%" stop-color="#14020a" />
+                                    </radialGradient>
+                                </defs>
+                                <rect x="50" y="50" width="300" height="300" rx="30" fill="url(#gradFront)" />
+                                <!-- Front Zones -->
+                                <g class="interactive-zone" data-info="질구/외음부 중심: 풍부한 신경 말단이 밀집되어 있습니다.">
+                                    <circle cx="200" cy="180" r="45" fill="rgba(255,255,255,0.05)" stroke="#ff2a70" stroke-width="2" />
+                                </g>
+                                <g class="interactive-zone" data-info="클리토리스: 약 8,000개의 신경 말단이 집중된 핵심 구역입니다.">
+                                    <circle cx="200" cy="110" r="20" fill="rgba(255,255,255,0.15)" stroke="#d91e5e" stroke-width="2" />
+                                </g>
+                            </svg>
+                        </div>
+                        
+                        <!-- View: Side -->
+                        <div id="view-side" class="anatomy-view-pane hidden">
+                            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="anatomy-svg">
+                                <rect x="50" y="50" width="300" height="300" rx="30" fill="#1f0814" stroke="#ff2a70" stroke-width="1" stroke-opacity="0.3"/>
+                                <!-- Side Zones -->
+                                <g class="interactive-zone" data-info="골반저근 (측면): 수축과 이완을 통해 쾌감의 강도를 조절하는 근육군.">
+                                    <ellipse cx="150" cy="250" rx="60" ry="30" transform="rotate(-30 150 250)" fill="rgba(255,255,255,0.05)" stroke="#ff2a70" stroke-width="1.5" stroke-dasharray="4"/>
+                                </g>
+                                <text x="200" y="200" text-anchor="middle" fill="#ff2a70" opacity="0.4">측면 뷰 (설명용 더미 SVG)</text>
+                            </svg>
+                        </div>
+
+                        <!-- View: Internal -->
+                        <div id="view-internal" class="anatomy-view-pane hidden">
+                            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="anatomy-svg">
+                                <rect x="50" y="50" width="300" height="300" rx="30" fill="#0d0408" stroke="#d91e5e" stroke-width="2" stroke-opacity="0.5"/>
+                                <!-- Internal Zones -->
+                                <g class="interactive-zone" data-info="G-Spot (질 전벽): 부드러운 스펀지 질감의 쾌감 포인트 네트워크.">
+                                    <circle cx="200" cy="160" r="35" fill="rgba(255,255,255,0.1)" stroke="#ff2a70" stroke-width="2"/>
+                                </g>
+                                <g class="interactive-zone" data-info="포닉스 (Fornix): 딥 플레이 시 자극받는 자궁경부 주변부.">
+                                    <path d="M 170 80 Q 200 60 230 80" fill="none" stroke="#d91e5e" stroke-width="10" opacity="0.6" stroke-linecap="round"/>
+                                </g>
+                                <text x="200" y="300" text-anchor="middle" fill="#ff2a70" opacity="0.4">내부 단면 뷰 (설명용 더미 SVG)</text>
+                            </svg>
+                        </div>
+
+                        <!-- Tooltip popup generated by JS -->
+                        <div id="infoTooltip" class="info-tooltip hidden">
+                            <h3 id="tooltipTitle">존 정보</h3>
+                            <p id="tooltipDesc">상세 설명이 표기됩니다.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Section: Premium Content (Unlocked) -->
+                <section id="advanced1" class="lesson-section hidden">
+                    <h1>실전 딥 플레이 스킬</h1>
+                    <p class="subtitle">섹슈얼 웰니스의 핵심, 실무적인 스킬 테크닉을 다룹니다.</p>
+                    <div class="video-placeholder" style="background-image: url('sensual_silhouette.png'); background-size: cover; background-position: center;">
+                        <div class="dark-overlay"></div>
+                        <span class="play-icon">▶</span>
+                        <div style="z-index: 2; margin-left: 15px; font-size: 1.1rem;">심화 스킬 영상 리스트 (준비중)</div>
+                    </div>
+                </section>
+                
+                <section id="advanced2" class="lesson-section hidden">
+                    <h1>파트너와의 짜릿한 교감</h1>
+                    <p class="subtitle">기계적인 스킬을 넘어선 심리적 타격감과 분위기 연출법.</p>
+                    <div class="video-placeholder" style="background-image: url('partner_video_bg.png'); background-size: cover; background-position: center;">
+                        <div class="dark-overlay"></div>
+                        <span class="play-icon">▶</span>
+                        <div style="z-index: 2; margin-left: 15px; font-size: 1.1rem;">마인드 컨트롤 강의 재생</div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

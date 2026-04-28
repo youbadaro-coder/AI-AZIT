@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Rambo Shooter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="ui-layer">
+        <div id="score-board">SCORE: <span id="score">0</span></div>
+        <div id="health-board">HP: <div id="health-bar">
+                <div id="health-fill"></div>
+            </div>
+        </div>
+        <div id="game-over" class="hidden">
+            <h1>GAME OVER</h1>
+            <p>Final Score: <span id="final-score">0</span></p>
+            <button id="restart-btn">Try Again</button>
+        </div>
+        <div id="start-screen">
+            <h1>CUTE RAMBO</h1>
+            <p>Arrow Keys to Move • Space to Shoot</p>
+            <button id="start-btn">MISSION START</button>
+        </div>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <script src="game.js"></script>
+</body>
+
+</html>

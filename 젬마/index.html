@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemma Chat | Premium Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="A premium chat interface for local Gemma LLM via Ollama.">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">Gemma Core</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-item active">
+                    <span class="icon">💬</span>
+                    <span>Recent Chats</span>
+                </div>
+                <!-- Chat History placeholders will be injected here -->
+            </nav>
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="status-dot online"></span>
+                    <span class="status-text">Ollama: Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-chat">
+            <header class="chat-header">
+                <div class="chat-info">
+                    <h1>Gemma Explorer</h1>
+                    <p class="subtitle">Local LLM Interface</p>
+                </div>
+                <div class="chat-actions">
+                    <button id="clearChat" class="btn-icon" title="Clear Chat">🗑️</button>
+                    <button id="settingsToggle" class="btn-icon" title="Settings">⚙️</button>
+                </div>
+            </header>
+
+            <div id="chatMessages" class="chat-messages">
+                <!-- Messages will appear here -->
+                <div class="message system-message">
+                    <div class="message-content">
+                        Gemma 익스플로러에 오신 것을 환영합니다. 무엇이든 물어보세요!
+                    </div>
+                </div>
+            </div>
+
+            <footer class="chat-input-area">
+                <div class="input-container">
+                    <textarea id="userInput" placeholder="Gemma에게 질문하세요..." rows="1"></textarea>
+                    <button id="sendBtn" class="send-button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p class="model-info">Model: <span id="currentModel">gemma</span></p>
+            </footer>
+        </main>
+
+        <!-- Settings Panel (Hidden by default) -->
+        <div id="settingsPanel" class="settings-panel hidden">
+            <div class="settings-content">
+                <h3>Settings</h3>
+                <div class="setting-group">
+                    <label for="modelSelect">Select Model</label>
+                    <select id="modelSelect">
+                        <option value="gemma">gemma</option>
+                        <!-- Other models will be injected here -->
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="temperature">Temperature: <span id="tempValue">0.7</span></label>
+                    <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                </div>
+                <button id="closeSettings" class="btn-primary">Save & Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
