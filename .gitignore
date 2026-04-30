@@ -227,3 +227,31 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# Aider
+.aider*
+cache.db*
+.aider.tags.cache.v4/
+
+# Temporary / Generated Assets
+.tmp/
+*.mp4
+*.mp3
+*.wav
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Expo / React Native
+.expo/
+web-build/
+node_modules/
+
+.aider*
+cache.db*
+.aider.tags.cache.v4/
