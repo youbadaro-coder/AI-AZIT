@@ -78,7 +78,7 @@ def get_best_products(category_id, limit=10):
     """
     쿠팡 베스트 페이지에서 인기 상품 리스트를 가져옵니다.
     """
-    url = f"https://www.coupang.com/np/best100/bestseller?category={category_id}"
+    url = f"https://www.coupang.com/np/best100/bestseller/{category_id}"
     options = Options()
     # options.add_argument('--headless')
     options.add_argument('--disable-gpu')
@@ -91,10 +91,14 @@ def get_best_products(category_id, limit=10):
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=options)
         driver.get(url)
-        time.sleep(3)
-        
-        html = driver.page_source
-        soup = BeautifulSoup(html, 'html.parser')
+    
+        # 더 많은 상품(최대 100개)을 불러오기 위해 페이지 스크롤 다운
+        time.sleep(2)
+        for _ in range(3):
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(1)
+            
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
         
         items = soup.select('ul#itemList > li, li.search-product, li.cntnt-list-item')
         products = []
@@ -105,7 +109,7 @@ def get_best_products(category_id, limit=10):
             # 가격 추출
             price_tag = item.select_one('strong.price-value, .price-value, .price-amount')
             # 링크 추출
-            link_tag = item.select_one('a.search-product-link, a[href*="/vp/products/"]')
+            link_tag = item.select_one('a[href*="/vp/products/"], a.search-product-link, a.baby-product-link')
             
             if title_tag and price_tag and link_tag:
                 title = title_tag.text.strip()
